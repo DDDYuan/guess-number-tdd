@@ -2,14 +2,15 @@ class GuessNumberGame {
     constructor() {
         this.answer = [1, 2, 3, 4];
         this.chances = 6;
+        this.errorMessageFor6Chances = "Run out of 6 chances";
+        this.errorMessageForInvalidInput = "Wrong Input，Input again";
     }
 
     test(input) {
         if (this.chances <= 0) {
-            return "Run out of 6 chances";
+            return this.errorMessageFor6Chances;
         }
 
-        const error = "Wrong Input，Input again";
         const patternOfZeroToNine = new RegExp("^[0-9]$");
         const inputNumberes = [];
         let invalid = false;
@@ -27,7 +28,7 @@ class GuessNumberGame {
         );
 
         if (invalid || inputNumberes.length < 4) {
-            return error;
+            return this.errorMessageForInvalidInput;
         }
         let numberInCorrectPosition = 0;
         let numberInWrongPosition = 0;
