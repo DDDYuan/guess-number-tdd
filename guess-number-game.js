@@ -1,6 +1,6 @@
 class GuessNumberGame {
-    constructor() {
-        this.answer = [1, 2, 3, 4];
+    constructor(answerGenerator) {
+        this.answer = answerGenerator.generate();
         this.chances = 6;
         this.errorMessageFor6Chances = "Run out of 6 chances";
         this.errorMessageForInvalidInput = "Wrong Input，Input again";

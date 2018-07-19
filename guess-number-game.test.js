@@ -1,7 +1,10 @@
 const GuessNumberGame = require("./guess-number-game");
+const AnswerGenerator = require("./answer-generator");
 let game;
 beforeEach(() => {
-  game = new GuessNumberGame();
+  const generator = new AnswerGenerator();
+  generator.generate = jest.fn((() => [1, 2, 3, 4]));
+  game = new GuessNumberGame(generator);
 });
 
 describe("GuessNumberGame", () => {
