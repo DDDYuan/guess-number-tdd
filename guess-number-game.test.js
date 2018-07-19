@@ -16,4 +16,16 @@ describe("GuessNumberGame", () => {
   it('should return 0A3B when input 0 1 2 3 and answer is 1 2 3 4', () => {
     expect(new GuessNumberGame().test("0 1 2 3")).toEqual("0A3B");
   });
+
+  it('should return "Wrong Input，Input again" when input 1 2 3 10', () => {
+    expect(new GuessNumberGame().test("1 2 3 10")).toEqual("Wrong Input，Input again");
+  });
+
+  it('should return "Wrong Input，Input again" when input 1 2 3 -4', () => {
+    expect(new GuessNumberGame().test("1 2 3 10")).toEqual("Wrong Input，Input again");
+  });
+
+  it('should return "Wrong Input，Input again" when input a b c d', () => {
+    expect(new GuessNumberGame().test("1 2 3 10")).toEqual("Wrong Input，Input again");
+  });
 });

@@ -4,7 +4,22 @@ class GuessNumberGame {
     }
 
     test(input) {
-        const inputNumberes = input.split(" ").map(str => parseInt(str, 10));
+        const error = "Wrong Input，Input again";
+        const patternOfZeroToNine = new RegExp("^[0-9]$");
+        const inputNumberes = [];
+        let invalid = false;
+        input.split(" ").forEach(
+            element => {
+                if (!patternOfZeroToNine.test(element)) {
+                    invalid = true;
+                }
+                inputNumberes.push(parseInt(element, 10));
+            }
+        );
+
+        if (invalid) {
+            return error;
+        }
         let numberInCorrectPosition = 0;
         let numberInWrongPosition = 0;
         inputNumberes.forEach(number => {
