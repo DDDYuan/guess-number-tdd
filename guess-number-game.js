@@ -1,11 +1,16 @@
 class GuessNumberGame {
-    constructor() {}
+    constructor() {
+        this.answer = "1 2 3 4";
+    }
 
     test(input) {
-        if (input === "1 2 3 4") {
-            return `4A0B`;
+        let numberInCorrectPosition = 0;
+        for (let index in input.split(" ")) {
+            if (input.split(" ")[index] === this.answer.split(" ")[index]) {
+                numberInCorrectPosition += 1;
+            }
         }
-        return `3A0B`;
+        return `${numberInCorrectPosition}A0B`;
     }
 }
 
