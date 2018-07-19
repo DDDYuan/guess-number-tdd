@@ -1,9 +1,14 @@
 class GuessNumberGame {
     constructor() {
         this.answer = [1, 2, 3, 4];
+        this.chances = 6;
     }
 
     test(input) {
+        if (this.chances <= 0) {
+            return "Run out of 6 chances";
+        }
+
         const error = "Wrong Input，Input again";
         const patternOfZeroToNine = new RegExp("^[0-9]$");
         const inputNumberes = [];
@@ -33,6 +38,7 @@ class GuessNumberGame {
                 numberInWrongPosition += 1;
             }
         });
+        this.chances -= 1;
         return `${numberInCorrectPosition}A${numberInWrongPosition}B`;
     }
 }

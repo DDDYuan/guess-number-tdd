@@ -32,4 +32,15 @@ describe("GuessNumberGame", () => {
   it('should return "Wrong Input，Input again" when input 1 1 1 1', () => {
     expect(new GuessNumberGame().test("1 1 1 1")).toEqual("Wrong Input，Input again");
   });
+
+  it('should return "Run out of 6 chances" when input wrong answers 6 chances', () => {
+    const game = new GuessNumberGame();
+    game.test("1 2 3 5");
+    game.test("1 2 3 5");
+    game.test("1 2 3 5");
+    game.test("1 2 3 5");
+    game.test("1 2 3 5");
+    game.test("1 2 3 5");
+    expect(game.test("1 2 3 5")).toEqual("Run out of 6 chances");
+  });
 });
