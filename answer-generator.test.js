@@ -17,4 +17,14 @@ describe('AnswerGenerator', () => {
             expect(element).toBeLessThanOrEqual(9);
         });
     });
+
+    it('should return 1, 2, 3, 4 when mock Math.random', () => {
+        let number = 0;
+        jest.spyOn(Math, "random").mockImplementation(() => {
+            number += 0.1;
+            console.log(number);
+            return number;
+        });
+        expect(generator.generate()).toEqual([1, 2, 3, 4]);
+    });
 });
