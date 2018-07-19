@@ -22,7 +22,6 @@ describe('AnswerGenerator', () => {
         let number = 0;
         jest.spyOn(Math, "random").mockImplementation(() => {
             number += 0.1;
-            console.log(number);
             return number;
         });
         expect(generator.generate()).toEqual([1, 2, 3, 4]);
