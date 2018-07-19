@@ -1,18 +1,19 @@
 class GuessNumberGame {
     constructor() {
-        this.answer = "1 2 3 4";
+        this.answer = [1, 2, 3, 4];
     }
 
     test(input) {
+        const inputNumberes = input.split(" ").map(str => parseInt(str, 10));
         let numberInCorrectPosition = 0;
         let numberInWrongPosition = 0;
-        for (let index in input.split(" ")) {
-            if (input.split(" ")[index] === this.answer.split(" ")[index]) {
+        inputNumberes.forEach(number => {
+            if (inputNumberes.indexOf(number) === this.answer.indexOf(number)) {
                 numberInCorrectPosition += 1;
-            } else if (this.answer.split(" ").includes(input.split(" ")[index])) {
+            } else if (this.answer.includes(number)) {
                 numberInWrongPosition += 1;
             }
-        }
+        });
         return `${numberInCorrectPosition}A${numberInWrongPosition}B`;
     }
 }
