@@ -22,10 +22,14 @@ describe("GuessNumberGame", () => {
   });
 
   it('should return "Wrong Input，Input again" when input 1 2 3 -4', () => {
-    expect(new GuessNumberGame().test("1 2 3 10")).toEqual("Wrong Input，Input again");
+    expect(new GuessNumberGame().test("1 2 3 -4")).toEqual("Wrong Input，Input again");
   });
 
   it('should return "Wrong Input，Input again" when input a b c d', () => {
-    expect(new GuessNumberGame().test("1 2 3 10")).toEqual("Wrong Input，Input again");
+    expect(new GuessNumberGame().test("a b c d")).toEqual("Wrong Input，Input again");
+  });
+
+  it('should return "Wrong Input，Input again" when input 1 1 1 1', () => {
+    expect(new GuessNumberGame().test("1 1 1 1")).toEqual("Wrong Input，Input again");
   });
 });

@@ -12,12 +12,16 @@ class GuessNumberGame {
             element => {
                 if (!patternOfZeroToNine.test(element)) {
                     invalid = true;
+                } else {
+                    const number = parseInt(element, 10);
+                    if (!inputNumberes.includes(number)) {
+                        inputNumberes.push(number);
+                    }
                 }
-                inputNumberes.push(parseInt(element, 10));
             }
         );
 
-        if (invalid) {
+        if (invalid || inputNumberes.length < 4) {
             return error;
         }
         let numberInCorrectPosition = 0;
