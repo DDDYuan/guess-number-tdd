@@ -17,6 +17,10 @@ describe("GuessNumberGame", () => {
     expect(new GuessNumberGame().test("0 1 2 3")).toEqual("0A3B");
   });
 
+  it('should return 2A2B when input 1 2 4 3 and answer is 1 2 3 4', () => {
+    expect(new GuessNumberGame().test("1 2 4 3")).toEqual("2A2B");
+  });
+
   it('should return "Wrong Input，Input again" when input 1 2 3 10', () => {
     expect(new GuessNumberGame().test("1 2 3 10")).toEqual("Wrong Input，Input again");
   });
@@ -35,12 +39,12 @@ describe("GuessNumberGame", () => {
 
   it('should return "Run out of 6 chances" when input wrong answers 6 chances', () => {
     const game = new GuessNumberGame();
-    game.test("1 2 3 5");
-    game.test("1 2 3 5");
-    game.test("1 2 3 5");
-    game.test("1 2 3 5");
-    game.test("1 2 3 5");
-    game.test("1 2 3 5");
+    expect(game.test("1 2 3 5")).toEqual("3A0B");
+    expect(game.test("1 2 3 5")).toEqual("3A0B");
+    expect(game.test("1 2 3 5")).toEqual("3A0B");
+    expect(game.test("1 2 3 5")).toEqual("3A0B");
+    expect(game.test("1 2 3 5")).toEqual("3A0B");
+    expect(game.test("1 2 3 5")).toEqual("3A0B");
     expect(game.test("1 2 3 5")).toEqual("Run out of 6 chances");
   });
 });
