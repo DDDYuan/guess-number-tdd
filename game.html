@@ -9,6 +9,37 @@
 </head>
 
 <body>
+    <input type="text" placeholder="input 4 numbers splited with space in range [0-9]" id="input-field">
+    <button type="submit" id="submit-answer">Submit Answer</button>
+    <table>
+        <thead>
+            <th>Input</th>
+            <th>Output</th>
+        </thead>
+        <tbody id="output-field">
+        </tbody>
+    </table>
+
+    <script src="./answer-generator.js"></script>
+    <script src="./guess-number-game.js"></script>
+    <script>
+        const game = new GuessNumberGame(new AnswerGenerator(0, 9, 4));
+        document.getElementById("submit-answer").addEventListener("click", () => {
+            const input = document.getElementById("input-field").value;
+            const result = game.test(input);
+
+            const resultElement = document.createElement("tr");
+            const inputTd = document.createElement("td");
+            inputTd.textContent = input;
+            const resultTd = document.createElement("td");
+            resultTd.textContent = result;
+            resultElement.appendChild(inputTd);
+            resultElement.appendChild(resultTd);
+
+            document.getElementById("output-field").appendChild(resultElement);
+            document.getElementById("input-field").value = "";
+        });
+    </script>
 
 </body>
 
