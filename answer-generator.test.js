@@ -5,7 +5,7 @@ beforeEach(() => {
     generator = new AnswerGenerator(0, 9, 4);
 });
 
-describe('AnswerGenerator', () => {
+describe("AnswerGenerator", () => {
     it("should have length of 4", () => {
         expect(generator.generate()).toHaveLength(4);
     });
@@ -18,7 +18,7 @@ describe('AnswerGenerator', () => {
         });
     });
 
-    it('should return 1, 2, 3, 4 when mock Math.random', () => {
+    it("should return 1, 2, 3, 4 when mock Math.random", () => {
         let number = 0;
         jest.spyOn(Math, "random").mockImplementation(() => {
             number += 0.1;

@@ -1,10 +1,10 @@
-const GuessNumberGame = require('./guess-number-game');
-const AnswerGenerator = require('./answer-generator');
+const GuessNumberGame = require("./guess-number-game");
+const AnswerGenerator = require("./answer-generator");
 
 const game = new GuessNumberGame(new AnswerGenerator(0, 9, 4));
 
-$('#submit-answer').click(() => {
-    const input = $('#input-field').val();
+$("#submit-answer").click(() => {
+    const input = $("#input-field").val();
     const result = game.test(input);
 
     const resultElement = document.createElement("tr");
@@ -15,6 +15,6 @@ $('#submit-answer').click(() => {
     resultElement.appendChild(inputTd);
     resultElement.appendChild(resultTd);
 
-    $('#output-field').append(resultElement);
-    $('#input-field').val('');
+    $("#output-field").append(resultElement);
+    $("#input-field").val("");
 });
